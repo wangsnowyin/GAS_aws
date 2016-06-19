@@ -1,0 +1,10 @@
+#!/bin/bash -ex
+cd /home/ubuntu/
+wget https://s3.amazonaws.com/mpcs-students/xueyin/gas_web_server.zip
+unzip gas_web_server.zip
+rm gas_web_server.zip
+sudo cp /home/ubuntu/mpcs/.aws/* /home/ubuntu/.aws/
+sudo chown -R ubuntu:ubuntu /home/ubuntu/mpcs
+sudo chown -R ubuntu:ubuntu /home/ubuntu/.aws
+cd mpcs/    
+sudo -u ubuntu ./mpcs_run.sh &

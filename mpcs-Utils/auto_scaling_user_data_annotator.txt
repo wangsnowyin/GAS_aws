@@ -1,0 +1,10 @@
+#!/bin/bash -ex
+cd /home/ubuntu/
+wget https://s3.amazonaws.com/mpcs-students/xueyin/gas_annotator.zip
+unzip gas_annotator.zip
+rm gas_annotator.zip
+sudo cp /home/ubuntu/mpcs/.aws/* /home/ubuntu/.aws/
+sudo chown -R ubuntu:ubuntu /home/ubuntu/mpcs
+sudo chown -R ubuntu:ubuntu /home/ubuntu/.aws
+cd mpcs/mpcs_anntools/    
+sudo -u ubuntu python jobs_runner.py &
